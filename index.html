@@ -35,18 +35,56 @@
       background: white; /* Color of the line */
       margin: 20px 0; /* Spacing above and below the line */
     }
+    .play-container {
+      text-align: center; /* Center-align content in the play container */
+      margin-top: 20px;
+    }
+    .play-image {
+      width: 100%;
+      max-width: 600px; /* Max width for the image */
+      display: block;
+      margin: 0 auto; /* Center the image */
+    }
+    .game-title {
+      margin: 20px 0;
+      font-size: 18px;
+      color: #d3d3d3; /* Light gray color for the text */
+    }
+    .play-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #6d9eeb; /* Button color */
+      color: white;
+      border: none;
+      border-radius: 15px; /* Curved corners */
+      cursor: pointer;
+      font-size: 18px;
+      text-decoration: none; /* Remove underline from links */
+      transition: background-color 0.3s, transform 0.3s; /* Smooth transition for hover effects */
+    }
+    .play-button:hover {
+      background-color: #5890d4; /* Darker blue for hover */
+      transform: scale(1.05); /* Slightly scale up on hover */
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="header">
-      <img src="https://raw.githubusercontent.com/5166-gamez/home/main/games.png" alt="Logo"> <!-- Add your image here -->
+      <img src="https://raw.githubusercontent.com/5166-gamez/home/main/games.png" alt="Logo">
       <div>
         <h1>Games</h1>
         <p class="description">Play video games all day.. my life is like a video game..</p>
       </div>
     </div>
-    <hr> <!-- Line divider -->
+    <hr>
+
+    <!-- Play Image, Text, and Button -->
+    <div class="play-container">
+      <img src="https://raw.githubusercontent.com/5166-gamez/games/main/slope.png" alt="Play Image" class="play-image"> <!-- Replace with your image URL -->
+      <p class="game-title">Slope</p>
+      <a href="https://5166-gamez.github.io/games/slope" target="_blank" class="play-button">Play</a>
+    </div>
   </div>
 </body>
 </html>
