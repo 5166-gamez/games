@@ -6,30 +6,47 @@
     body {
       font-family: 'Hammersmith', sans-serif;
       color: white; /* Set text color to white */
-      background-color: #1d1d1d; /* Dark background color */
       margin: 0;
       padding: 0;
-      text-align: center; /* Center text and images */
+      background-color: #1d1d1d; /* Dark background color */
     }
     .container {
       max-width: 1200px;
       margin: auto;
       padding: 20px;
     }
-    img {
-      display: block; /* Remove any extra space below the image */
-      margin: 20px auto; /* Center the image and add space around it */
-      border-radius: 8px; /* Rounded corners for the image */
+    .header {
+      display: flex; /* Align image and header in a row */
+      align-items: center; /* Vertically center the content */
+      gap: 20px; /* Space between the image and the text */
+    }
+    .header img {
+      width: 150px; /* Set the image width */
+      height: auto; /* Keep the aspect ratio */
+    }
+    .description {
+      margin-top: 10px;
+      font-size: 18px;
+      color: #d3d3d3; /* Light gray color for the description */
+    }
+    hr {
+      border: 0;
+      height: 2px;
+      background: white; /* Color of the line */
+      margin: 20px 0; /* Spacing above and below the line */
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Games</h1>
-    <p>The game</p>
-    <a href="https://5166-gamez.github.io/games/slope">
-      <img src="https://play-lh.googleusercontent.com/uJn2i9h7KxYQarC_c3K4qH6o7gLtflFnhD_dN14MNkzHJ1NeNFzCL69jpB5mT0vCoQs" alt="Slope" style="width: 150px; height: auto;">
-    </a>
+    <div class="header">
+      <img src="https://raw.githubusercontent.com/5166-gamez/home/main/home.png" alt="Logo"> <!-- Add your image here -->
+      <div>
+        <h1>Page Title</h1>
+        <p class="description">This is a brief description of the page. You can customize this content to provide more details or an introduction to the page.</p>
+      </div>
+    </div>
+    <hr> <!-- Line divider -->
   </div>
 </body>
 </html>
