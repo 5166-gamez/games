@@ -14,10 +14,12 @@
       max-width: 1200px;
       margin: auto;
       padding: 20px;
+      text-align: center; /* Center-align content in the container */
     }
     .header {
       display: flex; /* Align image and header in a row */
       align-items: center; /* Vertically center the content */
+      justify-content: center; /* Center-align header content */
       gap: 20px; /* Space between the image and the text */
     }
     .header img {
@@ -41,12 +43,15 @@
       background-color: #6d9eeb;
       color: white;
       border: none;
+      border-radius: 20px; /* Curved corners */
       cursor: pointer;
       font-size: 18px;
       margin: 20px 0;
+      transition: background-color 0.3s, transform 0.3s; /* Smooth transition for hover effects */
     }
     .fullscreen-btn:hover {
       background-color: #5890d4;
+      transform: scale(1.05); /* Slightly scale up on hover */
     }
   </style>
 </head>
