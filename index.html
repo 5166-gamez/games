@@ -56,7 +56,7 @@
       font-size: 18px;
       color: #d3d3d3; /* Light gray color for the text */
     }
-    .play-button {
+    .play-button, .random-button {
       display: inline-block;
       padding: 10px 80px;
       background-color: #6d9eeb; /* Button color */
@@ -68,7 +68,7 @@
       text-decoration: none; /* Remove underline from links */
       transition: background-color 0.3s, transform 0.3s; /* Smooth transition for hover effects */
     }
-    .play-button:hover {
+    .play-button:hover, .random-button:hover {
       background-color: #5890d4; /* Darker blue for hover */
       transform: scale(1.05); /* Slightly scale up on hover */
     }
@@ -100,14 +100,34 @@
         <p class="game-title">Cookie Clicker</p>
         <a href="https://5166-gamez.github.io/games/cookie-clicker" class="play-button">Play</a>
       </div>
-            <!-- Game label -->
+
+      <!-- Game label -->
       <div class="play-container">
         <img src="https://raw.githubusercontent.com/5166-gamez/games/main/braainsio.png" alt="Play Image" class="play-image"> <!-- Replace with your second game image URL -->
         <p class="game-title">Braains.io</p>
         <a href="https://5166-gamez.github.io/games/braains.io" class="play-button">Play</a>
       </div>
-    
+    </div>
+
+    <!-- Random game button -->
+    <div class="text-center">
+      <button class="random-button" onclick="goToRandomPage()">Go to Random Game</button>
     </div>
   </div>
+
+  <script>
+    function goToRandomPage() {
+      // List of page URLs
+      const pages = [
+        "https://5166-gamez.github.io/games/slope",
+        "https://5166-gamez.github.io/games/cookie-clicker",
+        "https://5166-gamez.github.io/games/braains.io"
+      ];
+      // Generate a random index
+      const randomIndex = Math.floor(Math.random() * pages.length);
+      // Redirect to the randomly selected page
+      window.location.href = pages[randomIndex];
+    }
+  </script>
 </body>
 </html>
