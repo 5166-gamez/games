@@ -22,11 +22,16 @@
       display: flex;
       align-items: center;
       gap: 20px;
-      justify-content: center;
+      justify-content: flex-start; /* Align content to the left */
+      margin-bottom: 20px; /* Add margin to separate from the content below */
     }
     .header img {
       width: 150px;
       height: auto;
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 24px;
     }
     iframe {
       width: 100%;
@@ -98,9 +103,7 @@
   <div class="container">
     <div class="header">
       <img src="https://raw.githubusercontent.com/5166-gamez/games/main/fnf.png" alt="Logo">
-      <div>
-        <h1>Friday Night Funkin'</h1>
-      </div>
+      <h1>Friday Night Funkin'</h1>
     </div>
     <hr>
 
