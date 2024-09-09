@@ -135,9 +135,10 @@
 
     // Handle Play button click
     document.getElementById('play-button').onclick = function() {
-      buttonsContainer.style.display = 'none'; // Hide buttons
+      buttonsContainer.classList.remove('show'); // Hide buttons
       iframe.style.display = 'block'; // Show the iframe
       fullscreenBtn.style.display = 'block'; // Show fullscreen button
+      gifElement.style.display = 'none'; // Hide the GIF
     };
 
     // Handle Back button click
