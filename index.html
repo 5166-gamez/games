@@ -37,6 +37,7 @@
     }
     .games-container {
       display: flex; /* Flex container for aligning games side by side */
+      flex-wrap: wrap; /* Allow the games to wrap to the next line if necessary */
       gap: 20px; /* Space between the game cards */
       justify-content: center; /* Center the game cards horizontally */
       margin-top: 20px;
@@ -110,8 +111,7 @@
         <p class="game-title">Braains.io</p>
         <a href="https://5166-gamez.github.io/games/braains.io" class="play-button">Play</a>
       </div>
-    </div>
-    
+
       <!-- Game label -->
       <div class="play-container">
         <img src="https://raw.githubusercontent.com/5166-gamez/games/main/placeholdernew.png" alt="Play Image" class="play-image">
@@ -132,7 +132,7 @@
       const pages = [
         "https://5166-gamez.github.io/games/slope",
         "https://5166-gamez.github.io/games/cookie-clicker",
-        "https://5166-gamez.github.io/games/braains.io"
+        "https://5166-gamez.github.io/games/braains.io",
         "https://5166-gamez.github.io/games/burrito-bison"
       ];
       // Generate a random index
