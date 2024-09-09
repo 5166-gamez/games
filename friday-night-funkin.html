@@ -42,6 +42,9 @@
       display: none; /* Initially hidden */
       gap: 10px;
       justify-content: center;
+      opacity: 0; /* Initial opacity for fade-in effect */
+      transform: translateY(-50px); /* Initial position above */
+      transition: transform 1s ease, opacity 1s ease; /* Smooth animation */
     }
     .button {
       padding: 10px 30px;
@@ -122,10 +125,19 @@
     // Image of the last frame of the GIF (replace this URL with your static last frame image)
     const lastFrameImage = 'https://raw.githubusercontent.com/5166-gamez/games/main/freezeframe.png';
 
+    // Function to display the buttons with tween effect
+    function showButtonsWithTween() {
+      buttonsContainer.style.display = 'flex'; // Show buttons
+      setTimeout(() => {
+        buttonsContainer.style.opacity = '1'; // Fade in
+        buttonsContainer.style.transform = 'translateY(0)'; // Slide down
+      }, 10); // Small delay to trigger the CSS transition
+    }
+
     // When the GIF finishes playing (adjust time based on GIF length)
     setTimeout(() => {
       gifElement.src = lastFrameImage; // Replace the GIF with the last frame image
-      buttonsContainer.style.display = 'flex'; // Show the buttons
+      showButtonsWithTween(); // Show the buttons with animation
     }, 1400); // Time in milliseconds (adjust based on GIF length)
 
     // Handle Play button click
