@@ -136,16 +136,18 @@
     // When the GIF finishes playing (adjust time based on GIF length)
     setTimeout(() => {
       gifElement.src = lastFrameImage; // Replace the GIF with the last frame image
+      console.log('GIF ended, updating text visibility'); // Debugging line
       introText.style.transform = 'translateY(0)'; // Slide down the text
       introText.style.opacity = '1'; // Fade in text
 
       // After text animation, bring down the buttons
       setTimeout(() => {
+        console.log('Showing buttons'); // Debugging line
         buttonsContainer.style.display = 'flex';
         buttonsContainer.style.transform = 'translateY(0)'; // Slide down buttons
         buttonsContainer.style.opacity = '1'; // Fade in buttons
       }, 2000); // Wait 2 seconds after the text appears before showing buttons
-    }, 1400); // Time in milliseconds (adjust based on GIF length)
+    }, 1450); // Time in milliseconds (adjust based on GIF length)
 
     // Handle Play button click
     document.getElementById('play-button').onclick = function() {
