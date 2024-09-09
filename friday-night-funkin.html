@@ -9,6 +9,7 @@
       margin: 0;
       padding: 0;
       background-color: #1d1d1d;
+      overflow: hidden; /* Prevent scroll during animation */
     }
     .container {
       max-width: 1200px;
@@ -42,39 +43,36 @@
       display: none; /* Initially hidden */
       gap: 10px;
       justify-content: center;
-      opacity: 0; /* Initial opacity for fade-in effect */
-      transform: translateY(-50px); /* Initial position above */
-      transition: transform 1s ease, opacity 1s ease; /* Smooth animation */
+      opacity: 0;
+      transform: translateY(-100%); /* Start off-screen */
+      transition: transform 1s ease-out, opacity 1s ease-out;
     }
     .button {
-      padding: 10px 30px;
-      background-color: #6d9eeb;
+      padding: 10px 50px; /* Increase button width */
+      background-color: transparent; /* Remove background */
       color: white;
       border: 2px solid white;
       border-radius: 15px;
       cursor: pointer;
       font-size: 18px;
-      transition: background-color 0.3s, transform 0.3s;
+      transition: transform 0.3s; /* Remove background-color transition */
     }
     .button:hover {
-      background-color: #5890d4;
-      transform: scale(1.05);
+      transform: scale(1.05); /* Only keep scale effect on hover */
     }
     .fullscreen-btn {
       display: none; /* Initially hidden until iframe shows */
-      padding: 10px 20px;
-      background-color: black;
+      padding: 10px 50px;
+      background-color: transparent;
       color: white;
       border: 2px solid white;
       border-radius: 15px;
       cursor: pointer;
       font-size: 18px;
       margin: 20px auto;
-      transition: background-color 0.3s, transform 0.3s, border-color 0.3s;
+      transition: transform 0.3s; /* Same hover effect */
     }
     .fullscreen-btn:hover {
-      background-color: #333;
-      border-color: #ddd;
       transform: scale(1.05);
     }
     .gif-container {
@@ -84,6 +82,12 @@
     .gif {
       max-width: 50%;
       height: auto;
+    }
+    .intro-text {
+      font-size: 36px;
+      opacity: 0;
+      transform: translateY(-100%);
+      transition: transform 1s ease-out, opacity 1s ease-out;
     }
   </style>
 </head>
@@ -101,6 +105,9 @@
     <div class="gif-container">
       <img src="https://raw.githubusercontent.com/5166-gamez/games/d5228848bfa751c968e686e230678bd294cad6bf/0001-0040.gif" class="gif" id="intro-gif" alt="Warning">
     </div>
+
+    <!-- Intro text that appears after freeze frame -->
+    <div class="intro-text" id="intro-text">Contains: Mild language, inappropriate topics/scenes, and violence (toggleable in game settings)</div>
 
     <!-- Buttons for Play and Back -->
     <div class="buttons" id="buttons-container">
@@ -121,23 +128,23 @@
     const buttonsContainer = document.getElementById('buttons-container');
     const iframe = document.getElementById('game-frame');
     const fullscreenBtn = document.getElementById('fullscreen-btn');
+    const introText = document.getElementById('intro-text');
 
     // Image of the last frame of the GIF (replace this URL with your static last frame image)
     const lastFrameImage = 'https://raw.githubusercontent.com/5166-gamez/games/main/freezeframe.png';
 
-    // Function to display the buttons with tween effect
-    function showButtonsWithTween() {
-      buttonsContainer.style.display = 'flex'; // Show buttons
-      setTimeout(() => {
-        buttonsContainer.style.opacity = '1'; // Fade in
-        buttonsContainer.style.transform = 'translateY(0)'; // Slide down
-      }, 10); // Small delay to trigger the CSS transition
-    }
-
     // When the GIF finishes playing (adjust time based on GIF length)
     setTimeout(() => {
       gifElement.src = lastFrameImage; // Replace the GIF with the last frame image
-      showButtonsWithTween(); // Show the buttons with animation
+      introText.style.transform = 'translateY(0)'; // Slide down the text
+      introText.style.opacity = '1'; // Fade in text
+
+      // After text animation, bring down the buttons
+      setTimeout(() => {
+        buttonsContainer.style.display = 'flex';
+        buttonsContainer.style.transform = 'translateY(0)'; // Slide down buttons
+        buttonsContainer.style.opacity = '1'; // Fade in buttons
+      }, 2000); // Wait 2 seconds after the text appears before showing buttons
     }, 1400); // Time in milliseconds (adjust based on GIF length)
 
     // Handle Play button click
