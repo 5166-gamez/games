@@ -5,54 +5,82 @@
   <style>
     body {
       font-family: 'Hammersmith', sans-serif;
-      color: white; /* Set text color to white */
+      color: white;
       margin: 0;
       padding: 0;
-      background-color: #1d1d1d; /* Dark background color */
+      background-color: #1d1d1d;
     }
     .container {
       max-width: 1200px;
       margin: auto;
       padding: 20px;
+      text-align: center;
     }
     .header {
-      display: flex; /* Align image and header in a row */
-      align-items: center; /* Vertically center the content */
-      gap: 20px; /* Space between the image and the text */
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      justify-content: center;
     }
     .header img {
-      width: 150px; /* Set the image width */
-      height: auto; /* Keep the aspect ratio */
+      width: 150px;
+      height: auto;
     }
     iframe {
       width: 100%;
-      height: 600px; /* Adjust the height as needed */
-      border: none; /* Remove the default iframe border */
-      display: block; /* Ensure the iframe behaves as a block element for centering */
-      margin: 0 auto; /* Center the iframe horizontally */
+      height: 600px;
+      border: none;
+      display: none; /* Hide iframe initially */
     }
     hr {
       border: 0;
       height: 2px;
-      background: white; /* Color of the line */
-      margin: 20px 0; /* Spacing above and below the line */
+      background: white;
+      margin: 20px 0;
     }
-    .fullscreen-btn {
-      display: block; /* Ensure the button behaves as a block element for centering */
-      padding: 10px 20px;
-      background-color: black; /* Black background color */
+    .buttons {
+      display: none; /* Initially hidden */
+      gap: 10px;
+      justify-content: center;
+    }
+    .button {
+      padding: 10px 30px;
+      background-color: #6d9eeb;
       color: white;
-      border: 2px solid white; /* White border */
-      border-radius: 15px; /* Curved corners */
+      border: 2px solid white;
+      border-radius: 15px;
       cursor: pointer;
       font-size: 18px;
-      margin: 20px auto; /* Center the button horizontally */
-      transition: background-color 0.3s, transform 0.3s, border-color 0.3s; /* Smooth transition for hover effects */
+      transition: background-color 0.3s, transform 0.3s;
+    }
+    .button:hover {
+      background-color: #5890d4;
+      transform: scale(1.05);
+    }
+    .fullscreen-btn {
+      display: none; /* Initially hidden until iframe shows */
+      padding: 10px 20px;
+      background-color: black;
+      color: white;
+      border: 2px solid white;
+      border-radius: 15px;
+      cursor: pointer;
+      font-size: 18px;
+      margin: 20px auto;
+      transition: background-color 0.3s, transform 0.3s, border-color 0.3s;
     }
     .fullscreen-btn:hover {
-      background-color: #333; /* Darker black for hover */
-      border-color: #ddd; /* Lighter border color on hover */
-      transform: scale(1.05); /* Slightly scale up on hover */
+      background-color: #333;
+      border-color: #ddd;
+      transform: scale(1.05);
+    }
+    .gif-container {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .gif {
+      max-width: 100%;
+      height: auto;
     }
   </style>
 </head>
@@ -66,16 +94,51 @@
     </div>
     <hr>
 
-    <!-- Embedded game -->
+    <!-- GIF Placeholder -->
+    <div class="gif-container">
+      <img src="https://raw.githubusercontent.com/5166-gamez/games/d5228848bfa751c968e686e230678bd294cad6bf/0001-0040.gif" class="gif" id="intro-gif" alt="Warning">
+    </div>
+
+    <!-- Buttons for Play and Back -->
+    <div class="buttons" id="buttons-container">
+      <button class="button" id="play-button">Play</button>
+      <button class="button" id="back-button">Back</button>
+    </div>
+
+    <!-- Fullscreen button (Initially hidden) -->
+    <button class="fullscreen-btn" id="fullscreen-btn" onclick="toggleFullscreen()">Fullscreen</button>
+
+    <!-- Embedded game (Initially hidden) -->
     <iframe id="game-frame" src="https://html-classic.itch.zone/html/2876359-1004346/index.html" title="Friday Night Funkin'"></iframe>
-    
-    <!-- Fullscreen button -->
-    <button class="fullscreen-btn" onclick="toggleFullscreen()">Fullscreen</button>
   </div>
 
   <script>
+    // Function to handle what happens when GIF ends (freezes)
+    const gifElement = document.getElementById('intro-gif');
+    const buttonsContainer = document.getElementById('buttons-container');
+    const iframe = document.getElementById('game-frame');
+    const fullscreenBtn = document.getElementById('fullscreen-btn');
+
+    // When the GIF finishes playing (after 5 seconds in this example)
+    setTimeout(() => {
+      gifElement.style.display = 'none'; // Hide the GIF
+      buttonsContainer.style.display = 'flex'; // Show the buttons
+    }, 5000); // Time in milliseconds (adjust based on GIF length)
+
+    // Handle Play button click
+    document.getElementById('play-button').onclick = function() {
+      buttonsContainer.style.display = 'none'; // Hide buttons
+      iframe.style.display = 'block'; // Show the iframe
+      fullscreenBtn.style.display = 'block'; // Show fullscreen button
+    };
+
+    // Handle Back button click
+    document.getElementById('back-button').onclick = function() {
+      window.location.href = "https://5166-gamez.github.io/games/"; // Redirect to games page
+    };
+
+    // Function to enable fullscreen for the iframe
     function toggleFullscreen() {
-      var iframe = document.getElementById('game-frame');
       if (iframe.requestFullscreen) {
         iframe.requestFullscreen();
       } else if (iframe.mozRequestFullScreen) { // Firefox
