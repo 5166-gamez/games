@@ -88,6 +88,8 @@
       opacity: 0;
       transform: translateY(-100%);
       transition: transform 1s ease-out, opacity 1s ease-out;
+      position: relative; /* Ensure it’s positioned within the layout */
+      z-index: 10; /* Ensure it’s above other content */
     }
   </style>
 </head>
@@ -135,14 +137,15 @@
 
     // When the GIF finishes playing (adjust time based on GIF length)
     setTimeout(() => {
+      console.log('Replacing GIF with last frame image');
       gifElement.src = lastFrameImage; // Replace the GIF with the last frame image
-      console.log('GIF ended, updating text visibility'); // Debugging line
       introText.style.transform = 'translateY(0)'; // Slide down the text
       introText.style.opacity = '1'; // Fade in text
+      console.log('Intro text should now be visible');
 
       // After text animation, bring down the buttons
       setTimeout(() => {
-        console.log('Showing buttons'); // Debugging line
+        console.log('Showing buttons');
         buttonsContainer.style.display = 'flex';
         buttonsContainer.style.transform = 'translateY(0)'; // Slide down buttons
         buttonsContainer.style.opacity = '1'; // Fade in buttons
