@@ -76,6 +76,10 @@
       background-color: #5890d4; /* Darker blue for hover */
       transform: scale(1.05); /* Slightly scale up on hover */
     }
+    .text-center {
+      text-align: center; /* Center-align content in the text-center class */
+      margin-top: 20px;
+    }
   </style>
 </head>
 <body>
@@ -132,7 +136,6 @@
         <p class="game-title">Eaglercraft</p>
         <a href="https://5166-gamez.github.io/games/eaglercraft" class="play-button">Play</a>
       </div>
-    </div>
 
       <!-- Game label -->
       <div class="play-container">
@@ -140,7 +143,6 @@
         <p class="game-title">Bonk.io</p>
         <a href="https://5166-gamez.github.io/games/bonk.io" class="play-button">Play</a>
       </div>
-    </div>
 
       <!-- Game label -->
       <div class="play-container">
@@ -148,7 +150,6 @@
         <p class="game-title">Bitlife</p>
         <a href="https://5166-gamez.github.io/games/bitlife" class="play-button">Play</a>
       </div>
-    </div>
 
       <!-- Game label -->
       <div class="play-container">
@@ -156,7 +157,6 @@
         <p class="game-title">Four Colors Multiplayer</p>
         <a href="https://5166-gamez.github.io/games/four-colors-multiplayer" class="play-button">Play</a>
       </div>
-    </div>
 
       <!-- Game label -->
       <div class="play-container">
@@ -164,8 +164,8 @@
         <p class="game-title">247 Checkers</p>
         <a href="https://5166-gamez.github.io/games/247-checkers" class="play-button">Play</a>
       </div>
-    </div>  
-  
+    </div>
+
     <!-- Random game button -->
     <div class="text-center">
       <button class="random-button" onclick="goToRandomPage()">Go to Random Game</button>
@@ -180,7 +180,12 @@
         "https://5166-gamez.github.io/games/cookie-clicker",
         "https://5166-gamez.github.io/games/braains.io",
         "https://5166-gamez.github.io/games/burrito-bison",
-        "https://5166-gamez.github.io/games/friday-night-funkin"
+        "https://5166-gamez.github.io/games/friday-night-funkin",
+        "https://5166-gamez.github.io/games/eaglercraft",
+        "https://5166-gamez.github.io/games/bonk.io",
+        "https://5166-gamez.github.io/games/bitlife",
+        "https://5166-gamez.github.io/games/247-checkers",
+        "https://5166-gamez.github.io/games/four-colors-multiplayer"
       ];
       // Generate a random index
       const randomIndex = Math.floor(Math.random() * pages.length);
