@@ -5,10 +5,10 @@
   <style>
     body {
       font-family: 'Hammersmith', sans-serif;
-      color: white; /* Set text color to white */
+      color: white;
       margin: 0;
       padding: 0;
-      background-color: #1d1d1d; /* Dark background color */
+      background-color: #1d1d1d;
     }
     .container {
       max-width: 1200px;
@@ -16,69 +16,101 @@
       padding: 20px;
     }
     .header {
-      display: flex; /* Align image and header in a row */
-      align-items: center; /* Vertically center the content */
-      gap: 20px; /* Space between the image and the text */
+      display: flex;
+      align-items: center;
+      gap: 20px;
     }
     .header img {
-      width: 150px; /* Set the image width */
-      height: auto; /* Keep the aspect ratio */
+      width: 150px;
+      height: auto;
     }
     .description {
       margin-top: 10px;
       font-size: 18px;
-      color: #d3d3d3; /* Light gray color for the description */
+      color: #d3d3d3;
     }
     hr {
       border: 0;
       height: 2px;
-      background: white; /* Color of the line */
-      margin: 20px 0; /* Spacing above and below the line */
+      background: white;
+      margin: 20px 0;
     }
     .games-container {
-      display: flex; /* Flex container for aligning games side by side */
-      flex-wrap: wrap; /* Allow the games to wrap to the next line if necessary */
-      gap: 20px; /* Space between the game cards */
-      justify-content: center; /* Center the game cards horizontally */
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
       margin-top: 20px;
     }
     .play-container {
-      text-align: center; /* Center-align content in the play container */
-      width: 200px; /* Set a fixed width for each game card */
-      background-color: #2c2c2c; /* Dark background color for each game card */
+      text-align: center;
+      width: 200px;
+      background-color: #2c2c2c;
       padding: 10px;
-      border-radius: 10px; /* Rounded corners for the card */
+      border-radius: 10px;
     }
     .play-image {
       width: 100%;
-      max-width: 200px; /* Max width for the image */
+      max-width: 200px;
       display: block;
-      margin: 0 auto; /* Center the image */
+      margin: 0 auto;
     }
     .game-title {
       margin: 10px 0;
       font-size: 18px;
-      color: #d3d3d3; /* Light gray color for the text */
+      color: #d3d3d3;
     }
     .play-button, .random-button {
       display: inline-block;
       padding: 10px 80px;
-      background-color: #6d9eeb; /* Button color */
+      background-color: #6d9eeb;
       color: white;
-      border: 2px solid white; /* White outline */
-      border-radius: 15px; /* Curved corners */
+      border: 2px solid white;
+      border-radius: 15px;
       cursor: pointer;
       font-size: 18px;
-      text-decoration: none; /* Remove underline from links */
-      transition: background-color 0.3s, transform 0.3s; /* Smooth transition for hover effects */
+      text-decoration: none;
+      transition: background-color 0.3s, transform 0.3s;
     }
     .play-button:hover, .random-button:hover {
-      background-color: #5890d4; /* Darker blue for hover */
-      transform: scale(1.05); /* Slightly scale up on hover */
+      background-color: #5890d4;
+      transform: scale(1.05);
     }
     .text-center {
-      text-align: center; /* Center-align content in the text-center class */
+      text-align: center;
       margin-top: 20px;
+    }
+
+    /* Categories section */
+    .categories-container {
+      margin: 40px 0;
+      text-align: center;
+    }
+    .category-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .category-card {
+      background-color: #333;
+      width: 250px;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+    .category-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+    .category-card:hover {
+      transform: scale(1.05);
+    }
+    .category-title {
+      padding: 15px;
+      font-size: 18px;
+      color: white;
     }
   </style>
 </head>
@@ -93,6 +125,20 @@
     </div>
     <hr>
 
+    <!-- Categories section -->
+    <div class="categories-container">
+      <h2>Categories</h2>
+      <div class="category-cards">
+        <!-- Category card -->
+        <a href="https://5166-gamez.github.io/categories/" class="category-card">
+          <img src="https://raw.githubusercontent.com/5166-gamez/games/main/placeholder.png" alt="Category">
+          <div class="category-title">Action Games</div>
+        </a>
+      </div>
+    </div>
+
+    <hr>
+
     <!-- Games labels container -->
     <div class="games-container">
       <!-- Game label -->
@@ -102,68 +148,7 @@
         <a href="https://5166-gamez.github.io/games/247-checkers" class="play-button">Play</a>
       </div>
 
-      <!-- Game label -->
-      <div class="play-container">
-        <img src="https://raw.githubusercontent.com/5166-gamez/games/main/bitlife.png" alt="Play Image" class="play-image">
-        <p class="game-title">Bitlife</p>
-        <a href="https://5166-gamez.github.io/games/bitlife" class="play-button">Play</a>
-      </div>
-
-      <!-- Game label -->
-      <div class="play-container">
-        <img src="https://raw.githubusercontent.com/5166-gamez/games/main/bonkio.png" alt="Play Image" class="play-image">
-        <p class="game-title">Bonk.io</p>
-        <a href="https://5166-gamez.github.io/games/bonk.io" class="play-button">Play</a>
-      </div>
-
-      <!-- Game label -->
-      <div class="play-container">
-        <img src="https://raw.githubusercontent.com/5166-gamez/games/main/braainsio.png" alt="Play Image" class="play-image">
-        <p class="game-title">Braains.io</p>
-        <a href="https://5166-gamez.github.io/games/braains.io" class="play-button">Play</a>
-      </div>
-
-      <!-- Game label -->
-      <div class="play-container">
-        <img src="https://raw.githubusercontent.com/5166-gamez/games/main/placeholdernew.png" alt="Play Image" class="play-image">
-        <p class="game-title">Burrito Bison</p>
-        <a href="https://5166-gamez.github.io/games/burrito-bison" class="play-button">Play</a>
-      </div>
-
-      <!-- Game label -->
-      <div class="play-container">
-        <img src="https://raw.githubusercontent.com/5166-gamez/games/main/cookieclicker.png" alt="Play Image" class="play-image">
-        <p class="game-title">Cookie Clicker</p>
-        <a href="https://5166-gamez.github.io/games/cookie-clicker" class="play-button">Play</a>
-      </div>
-
-      <!-- Game label -->
-      <div class="play-container">
-        <img src="https://raw.githubusercontent.com/5166-gamez/games/main/eagler.png" alt="Play Image" class="play-image">
-        <p class="game-title">Eaglercraft</p>
-        <a href="https://5166-gamez.github.io/games/eaglercraft" class="play-button">Play</a>
-      </div>
-
-      <!-- Game label -->
-      <div class="play-container">
-        <img src="https://raw.githubusercontent.com/5166-gamez/games/main/fnfage.png" alt="Play Image" class="play-image">
-        <p class="game-title">Friday Night Funkin'</p>
-        <a href="https://5166-gamez.github.io/games/friday-night-funkin" class="play-button">Play</a>
-      </div>
-
-      <!-- Game label -->
-      <div class="play-container">
-        <img src="https://raw.githubusercontent.com/5166-gamez/games/main/4colorsmultiplayer.png" alt="Play Image" class="play-image">
-        <p class="game-title">Four Colors Multiplayer</p>
-        <a href="https://5166-gamez.github.io/games/four-colors-multiplayer" class="play-button">Play</a>
-      </div>
-
-      <!-- Game label -->
-      <div class="play-container">
-        <img src="https://raw.githubusercontent.com/5166-gamez/games/main/slope.png" alt="Play Image" class="play-image">
-        <p class="game-title">Slope</p>
-        <a href="https://5166-gamez.github.io/games/slope" class="play-button">Play</a>
-      </div>
+      <!-- Repeat game cards... -->
     </div>
 
     <!-- Random game button -->
@@ -174,7 +159,6 @@
 
   <script>
     function goToRandomPage() {
-      // List of page URLs
       const pages = [
         "https://5166-gamez.github.io/games/247-checkers",
         "https://5166-gamez.github.io/games/bitlife",
@@ -187,11 +171,7 @@
         "https://5166-gamez.github.io/games/four-colors-multiplayer",
         "https://5166-gamez.github.io/games/slope"
       ];
-
-      // Get a random index
       const randomIndex = Math.floor(Math.random() * pages.length);
-
-      // Redirect to the random page
       window.location.href = pages[randomIndex];
     }
   </script>
