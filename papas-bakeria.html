@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Hammersmith:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Hammersmith', sans-serif;
+      color: white; /* Set text color to white */
+      margin: 0;
+      padding: 0;
+      background-color: #1d1d1d; /* Dark background color */
+    }
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+    }
+    .header {
+      display: flex; /* Align image and header in a row */
+      align-items: center; /* Vertically center the content */
+      gap: 20px; /* Space between the image and the text */
+    }
+    .header img {
+      width: 150px; /* Set the image width */
+      height: auto; /* Keep the aspect ratio */
+    }
+    iframe {
+      width: 100%;
+      height: 600px; /* Adjust the height as needed */
+      border: none; /* Remove the default iframe border */
+      display: block; /* Ensure the iframe behaves as a block element for centering */
+      margin: 0 auto; /* Center the iframe horizontally */
+    }
+    hr {
+      border: 0;
+      height: 2px;
+      background: white; /* Color of the line */
+      margin: 20px 0; /* Spacing above and below the line */
+    }
+    .fullscreen-btn {
+      display: block; /* Ensure the button behaves as a block element for centering */
+      padding: 10px 20px;
+      background-color: black; /* Black background color */
+      color: white;
+      border: 2px solid white; /* White border */
+      border-radius: 15px; /* Curved corners */
+      cursor: pointer;
+      font-size: 18px;
+      margin: 20px auto; /* Center the button horizontally */
+      transition: background-color 0.3s, transform 0.3s, border-color 0.3s; /* Smooth transition for hover effects */
+    }
+    .fullscreen-btn:hover {
+      background-color: #333; /* Darker black for hover */
+      border-color: #ddd; /* Lighter border color on hover */
+      transform: scale(1.05); /* Slightly scale up on hover */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="https://raw.githubusercontent.com/5166-gamez/games/refs/heads/main/placeholder.png" alt="Logo">
+      <div>
+        <h1>Papa's Bakeria</h1>
+      </div>
+    </div>
+    <hr>
+
+    <!-- Embedded game -->
+    <iframe id="game-frame" src="https://images-opensocial.googleusercontent.com/gadgets/ifr?url=https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/1ee20621-61bc-4ec8-a8ec-5e839c2e6edc%2Fpapas-bakeria.xml&container=ig" title="Papa's Bakeria"></iframe>
+    
+    <!-- Fullscreen button -->
+    <button class="fullscreen-btn" onclick="toggleFullscreen()">Fullscreen</button>
+  </div>
+
+  <script>
+    function toggleFullscreen() {
+      var iframe = document.getElementById('game-frame');
+      if (iframe.requestFullscreen) {
+        iframe.requestFullscreen();
+      } else if (iframe.mozRequestFullScreen) { // Firefox
+        iframe.mozRequestFullScreen();
+      } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari, and Opera
+        iframe.webkitRequestFullscreen();
+      } else if (iframe.msRequestFullscreen) { // IE/Edge
+        iframe.msRequestFullscreen();
+      }
+    }
+  </script>
+</body>
+</html>
