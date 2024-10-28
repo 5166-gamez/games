@@ -15,15 +15,15 @@
       margin: auto;
       padding: 20px;
       text-align: center;
-      position: relative; /* Enable positioning of child elements */
-      min-height: 100vh; /* Ensure container takes full viewport height */
+      position: relative;
+      min-height: 100vh;
     }
     .header {
       display: flex;
       align-items: center;
       gap: 20px;
-      justify-content: flex-start; /* Align content to the left */
-      margin-bottom: 20px; /* Add margin to separate from the content below */
+      justify-content: flex-start;
+      margin-bottom: 20px;
     }
     .header img {
       width: 150px;
@@ -37,7 +37,7 @@
       width: 100%;
       height: 600px;
       border: none;
-      display: none; /* Hide iframe initially */
+      display: none;
     }
     hr {
       border: 0;
@@ -46,36 +46,19 @@
       margin: 20px 0;
     }
     .buttons {
-      display: none; /* Initially hidden */
+      display: none;
       gap: 10px;
       justify-content: center;
-      opacity: 0; /* Start with hidden buttons */
-      transform: translateY(-30px); /* Start with the buttons off-screen */
-      transition: opacity 1s, transform 1s; /* Tweening effect */
+      opacity: 0;
+      transform: translateY(-30px);
+      transition: opacity 1s, transform 1s;
     }
     .buttons.show {
-      display: flex; /* Show buttons */
+      display: flex;
       opacity: 1;
-      transform: translateY(0); /* Move buttons to their normal position */
+      transform: translateY(0);
     }
     .button {
-      padding: 10px 50px; /* Increase button width */
-      background-color: transparent; /* Remove background */
-      color: white;
-      border: 2px solid white;
-      border-radius: 15px;
-      cursor: pointer;
-      font-size: 18px;
-      transition: transform 0.3s; /* Remove background-color transition */
-    }
-    .button:hover {
-      transform: scale(1.05); /* Only keep scale effect on hover */
-    }
-    .fullscreen-btn {
-      position: absolute; /* Position at the bottom of the container */
-      bottom: 20px; /* Adjust as needed */
-      left: 50%;
-      transform: translateX(-50%); /* Center horizontally */
       padding: 10px 50px;
       background-color: transparent;
       color: white;
@@ -83,8 +66,22 @@
       border-radius: 15px;
       cursor: pointer;
       font-size: 18px;
-      transition: transform 0.3s; /* Same hover effect */
-      display: none; /* Initially hidden until iframe shows */
+      transition: transform 0.3s;
+    }
+    .button:hover {
+      transform: scale(1.05);
+    }
+    .fullscreen-btn {
+      padding: 10px 50px;
+      background-color: transparent;
+      color: white;
+      border: 2px solid white;
+      border-radius: 15px;
+      cursor: pointer;
+      font-size: 18px;
+      transition: transform 0.3s;
+      display: none;
+      margin-top: 20px; /* Adds space between iframe and button */
     }
     .fullscreen-btn:hover {
       transform: scale(1.05);
@@ -118,51 +115,45 @@
       <button class="button" id="back-button">Back</button>
     </div>
 
-    <!-- Fullscreen button (Initially hidden) -->
-    <button class="fullscreen-btn" id="fullscreen-btn" onclick="toggleFullscreen()">Fullscreen</button>
-
     <!-- Embedded game (Initially hidden) -->
     <iframe id="game-frame" src="https://html-classic.itch.zone/html/2876359-1089466/index.html" title="Friday Night Funkin'"></iframe>
+
+    <!-- Fullscreen button (Below the iframe) -->
+    <button class="fullscreen-btn" id="fullscreen-btn" onclick="toggleFullscreen()">Fullscreen</button>
   </div>
 
   <script>
-    // Function to handle what happens when GIF ends (freezes)
     const gifElement = document.getElementById('intro-gif');
     const buttonsContainer = document.getElementById('buttons-container');
     const iframe = document.getElementById('game-frame');
     const fullscreenBtn = document.getElementById('fullscreen-btn');
 
-    // Image of the last frame of the GIF (replace this URL with your static last frame image)
     const lastFrameImage = 'https://raw.githubusercontent.com/5166-gamez/games/main/freezeframe.png';
 
-    // When the GIF finishes playing (adjust time based on GIF length)
     setTimeout(() => {
-      gifElement.src = lastFrameImage; // Replace the GIF with the last frame image
-      buttonsContainer.classList.add('show'); // Show the buttons with tweening
-    }, 1400); // Time in milliseconds (adjust based on GIF length)
+      gifElement.src = lastFrameImage;
+      buttonsContainer.classList.add('show');
+    }, 1400);
 
-    // Handle Play button click
     document.getElementById('play-button').onclick = function() {
-      buttonsContainer.classList.remove('show'); // Hide buttons
-      iframe.style.display = 'block'; // Show the iframe
-      fullscreenBtn.style.display = 'block'; // Show fullscreen button
-      gifElement.style.display = 'none'; // Hide the GIF
+      buttonsContainer.classList.remove('show');
+      iframe.style.display = 'block';
+      fullscreenBtn.style.display = 'block';
+      gifElement.style.display = 'none';
     };
 
-    // Handle Back button click
     document.getElementById('back-button').onclick = function() {
-      window.location.href = "https://5166-gamez.github.io/games/"; // Redirect to games page
+      window.location.href = "https://5166-gamez.github.io/games/";
     };
 
-    // Function to enable fullscreen for the iframe
     function toggleFullscreen() {
       if (iframe.requestFullscreen) {
         iframe.requestFullscreen();
-      } else if (iframe.mozRequestFullScreen) { // Firefox
+      } else if (iframe.mozRequestFullScreen) {
         iframe.mozRequestFullScreen();
-      } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari, and Opera
+      } else if (iframe.webkitRequestFullscreen) {
         iframe.webkitRequestFullscreen();
-      } else if (iframe.msRequestFullscreen) { // IE/Edge
+      } else if (iframe.msRequestFullscreen) {
         iframe.msRequestFullscreen();
       }
     }
