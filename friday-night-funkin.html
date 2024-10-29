@@ -14,7 +14,7 @@
       max-width: 1200px;
       margin: auto;
       padding: 20px;
-      text-align: center;
+      text-align: center; /* Center-align content */
       position: relative;
       min-height: 100vh;
     }
@@ -72,6 +72,8 @@
       transform: scale(1.05);
     }
     .fullscreen-btn {
+      display: inline-block; /* Center-align button */
+      margin-top: 20px;
       padding: 10px 50px;
       background-color: transparent;
       color: white;
@@ -81,7 +83,6 @@
       font-size: 18px;
       transition: transform 0.3s;
       display: none;
-      margin-top: 20px; /* Adds space between iframe and button */
     }
     .fullscreen-btn:hover {
       transform: scale(1.05);
@@ -138,7 +139,7 @@
     document.getElementById('play-button').onclick = function() {
       buttonsContainer.classList.remove('show');
       iframe.style.display = 'block';
-      fullscreenBtn.style.display = 'block';
+      fullscreenBtn.style.display = 'inline-block';
       gifElement.style.display = 'none';
     };
 
